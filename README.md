@@ -1,9 +1,12 @@
 # WEB-of-CT07-AND-SJ17
 enterprise project training group work
 
+***
 
-ruoyi&&vue3   separation of front-end and backend
+### ruoyi&&vue3   
+### separation of front-end and backend
 
 
 
-![mmo](https://wx3.sinaimg.cn/orj360/006Kwzzxly1huxmuya2n6j30je0jegml.jpg)
+![mo](https://github.com/zipengzhaojingzi/WEB-of-CT07-AND-SJ17/blob/main/img/a6f982d519808b872300f342333f3d9d.png)
+![mo](https://github.com/zipengzhaojingzi/WEB-of-CT07-AND-SJ17/blob/main/img/6989ee5380abe5c569458e218cb5c969.png)
