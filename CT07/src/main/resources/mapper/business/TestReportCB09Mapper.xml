@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.business.demo.mapper.TestReportCB09Mapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.business.demo.domain.TestReportCB09">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="test_org_name" jdbcType="VARCHAR" property="testOrgName" />
+    <result column="report_no" jdbcType="VARCHAR" property="reportNo" />
+    <result column="project_name" jdbcType="VARCHAR" property="projectName" />
+    <result column="contract_area" jdbcType="VARCHAR" property="contractArea" />
+    <result column="construction_org_name" jdbcType="VARCHAR" property="constructionOrgName" />
+    <result column="supervisor_org_name" jdbcType="VARCHAR" property="supervisorOrgName" />
+    <result column="project_part_and_purpose" jdbcType="VARCHAR" property="projectPartAndPurpose" />
+    <result column="sample_info" jdbcType="VARCHAR" property="sampleInfo" />
+    <result column="testing_basis" jdbcType="VARCHAR" property="testingBasis" />
+    <result column="judgment_criteria" jdbcType="VARCHAR" property="judgmentCriteria" />
+    <result column="equipment_name_and_no" jdbcType="VARCHAR" property="equipmentNameAndNo" />
+    <result column="mix_proportion_no" jdbcType="VARCHAR" property="mixProportionNo" />
+    <result column="impermeability_level" jdbcType="VARCHAR" property="impermeabilityLevel" />
+    <result column="design_strength" jdbcType="VARCHAR" property="designStrength" />
+    <result column="stir_type" jdbcType="VARCHAR" property="stirType" />
+    <result column="forming_date" jdbcType="DATE" property="formingDate" />
+    <result column="slumps_value" jdbcType="DECIMAL" property="slumpsValue" />
+    <result column="maintain_type" jdbcType="VARCHAR" property="maintainType" />
+    <result column="age_value" jdbcType="INTEGER" property="ageValue" />
+    <result column="test_date" jdbcType="DATE" property="testDate" />
+    <result column="team_no" jdbcType="VARCHAR" property="teamNo" />
+    <result column="test_stop_water_pressure" jdbcType="DECIMAL" property="testStopWaterPressure" />
+    <result column="test_stop_seepage_part_num" jdbcType="INTEGER" property="testStopSeepagePartNum" />
+    <result column="test_strength" jdbcType="VARCHAR" property="testStrength" />
+    <result column="result" jdbcType="VARCHAR" property="result" />
+    <result column="additional_statement" jdbcType="VARCHAR" property="additionalStatement" />
+    <result column="test_person" jdbcType="VARCHAR" property="testPerson" />
+    <result column="examine_person" jdbcType="VARCHAR" property="examinePerson" />
+    <result column="approve_person" jdbcType="VARCHAR" property="approvePerson" />
+    <result column="report_date" jdbcType="DATE" property="reportDate" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, test_org_name, report_no, project_name, contract_area, construction_org_name, 
+    supervisor_org_name, project_part_and_purpose, sample_info, testing_basis, judgment_criteria, 
+    equipment_name_and_no, mix_proportion_no, impermeability_level, design_strength, 
+    stir_type, forming_date, slumps_value, maintain_type, age_value, test_date, team_no, 
+    test_stop_water_pressure, test_stop_seepage_part_num, test_strength, result, additional_statement, 
+    test_person, examine_person, approve_person, report_date, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_report_cb09
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from test_report_cb09
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ruoyi.business.demo.domain.TestReportCB09">
+    insert into test_report_cb09 (id, test_org_name, report_no, 
+      project_name, contract_area, construction_org_name, 
+      supervisor_org_name, project_part_and_purpose, 
+      sample_info, testing_basis, judgment_criteria, 
+      equipment_name_and_no, mix_proportion_no, impermeability_level, 
+      design_strength, stir_type, forming_date, 
+      slumps_value, maintain_type, age_value, 
+      test_date, team_no, test_stop_water_pressure, 
+      test_stop_seepage_part_num, test_strength, result, 
+      additional_statement, test_person, examine_person, 
+      approve_person, report_date, create_time, 
+      update_time)
+    values (#{id,jdbcType=BIGINT}, #{testOrgName,jdbcType=VARCHAR}, #{reportNo,jdbcType=VARCHAR}, 
+      #{projectName,jdbcType=VARCHAR}, #{contractArea,jdbcType=VARCHAR}, #{constructionOrgName,jdbcType=VARCHAR}, 
+      #{supervisorOrgName,jdbcType=VARCHAR}, #{projectPartAndPurpose,jdbcType=VARCHAR}, 
+      #{sampleInfo,jdbcType=VARCHAR}, #{testingBasis,jdbcType=VARCHAR}, #{judgmentCriteria,jdbcType=VARCHAR}, 
+      #{equipmentNameAndNo,jdbcType=VARCHAR}, #{mixProportionNo,jdbcType=VARCHAR}, #{impermeabilityLevel,jdbcType=VARCHAR}, 
+      #{designStrength,jdbcType=VARCHAR}, #{stirType,jdbcType=VARCHAR}, #{formingDate,jdbcType=DATE}, 
+      #{slumpsValue,jdbcType=DECIMAL}, #{maintainType,jdbcType=VARCHAR}, #{ageValue,jdbcType=INTEGER}, 
+      #{testDate,jdbcType=DATE}, #{teamNo,jdbcType=VARCHAR}, #{testStopWaterPressure,jdbcType=DECIMAL}, 
+      #{testStopSeepagePartNum,jdbcType=INTEGER}, #{testStrength,jdbcType=VARCHAR}, #{result,jdbcType=VARCHAR}, 
+      #{additionalStatement,jdbcType=VARCHAR}, #{testPerson,jdbcType=VARCHAR}, #{examinePerson,jdbcType=VARCHAR}, 
+      #{approvePerson,jdbcType=VARCHAR}, #{reportDate,jdbcType=DATE}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ruoyi.business.demo.domain.TestReportCB09">
+    insert into test_report_cb09
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="testOrgName != null">
+        test_org_name,
+      </if>
+      <if test="reportNo != null">
+        report_no,
+      </if>
+      <if test="projectName != null">
+        project_name,
+      </if>
+      <if test="contractArea != null">
+        contract_area,
+      </if>
+      <if test="constructionOrgName != null">
+        construction_org_name,
+      </if>
+      <if test="supervisorOrgName != null">
+        supervisor_org_name,
+      </if>
+      <if test="projectPartAndPurpose != null">
+        project_part_and_purpose,
+      </if>
+      <if test="sampleInfo != null">
+        sample_info,
+      </if>
+      <if test="testingBasis != null">
+        testing_basis,
+      </if>
+      <if test="judgmentCriteria != null">
+        judgment_criteria,
+      </if>
+      <if test="equipmentNameAndNo != null">
+        equipment_name_and_no,
+      </if>
+      <if test="mixProportionNo != null">
+        mix_proportion_no,
+      </if>
+      <if test="impermeabilityLevel != null">
+        impermeability_level,
+      </if>
+      <if test="designStrength != null">
+        design_strength,
+      </if>
+      <if test="stirType != null">
+        stir_type,
+      </if>
+      <if test="formingDate != null">
+        forming_date,
+      </if>
+      <if test="slumpsValue != null">
+        slumps_value,
+      </if>
+      <if test="maintainType != null">
+        maintain_type,
+      </if>
+      <if test="ageValue != null">
+        age_value,
+      </if>
+      <if test="testDate != null">
+        test_date,
+      </if>
+      <if test="teamNo != null">
+        team_no,
+      </if>
+      <if test="testStopWaterPressure != null">
+        test_stop_water_pressure,
+      </if>
+      <if test="testStopSeepagePartNum != null">
+        test_stop_seepage_part_num,
+      </if>
+      <if test="testStrength != null">
+        test_strength,
+      </if>
+      <if test="result != null">
+        result,
+      </if>
+      <if test="additionalStatement != null">
+        additional_statement,
+      </if>
+      <if test="testPerson != null">
+        test_person,
+      </if>
+      <if test="examinePerson != null">
+        examine_person,
+      </if>
+      <if test="approvePerson != null">
+        approve_person,
+      </if>
+      <if test="reportDate != null">
+        report_date,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="testOrgName != null">
+        #{testOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="reportNo != null">
+        #{reportNo,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null">
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractArea != null">
+        #{contractArea,jdbcType=VARCHAR},
+      </if>
+      <if test="constructionOrgName != null">
+        #{constructionOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="supervisorOrgName != null">
+        #{supervisorOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectPartAndPurpose != null">
+        #{projectPartAndPurpose,jdbcType=VARCHAR},
+      </if>
+      <if test="sampleInfo != null">
+        #{sampleInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="testingBasis != null">
+        #{testingBasis,jdbcType=VARCHAR},
+      </if>
+      <if test="judgmentCriteria != null">
+        #{judgmentCriteria,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentNameAndNo != null">
+        #{equipmentNameAndNo,jdbcType=VARCHAR},
+      </if>
+      <if test="mixProportionNo != null">
+        #{mixProportionNo,jdbcType=VARCHAR},
+      </if>
+      <if test="impermeabilityLevel != null">
+        #{impermeabilityLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="designStrength != null">
+        #{designStrength,jdbcType=VARCHAR},
+      </if>
+      <if test="stirType != null">
+        #{stirType,jdbcType=VARCHAR},
+      </if>
+      <if test="formingDate != null">
+        #{formingDate,jdbcType=DATE},
+      </if>
+      <if test="slumpsValue != null">
+        #{slumpsValue,jdbcType=DECIMAL},
+      </if>
+      <if test="maintainType != null">
+        #{maintainType,jdbcType=VARCHAR},
+      </if>
+      <if test="ageValue != null">
+        #{ageValue,jdbcType=INTEGER},
+      </if>
+      <if test="testDate != null">
+        #{testDate,jdbcType=DATE},
+      </if>
+      <if test="teamNo != null">
+        #{teamNo,jdbcType=VARCHAR},
+      </if>
+      <if test="testStopWaterPressure != null">
+        #{testStopWaterPressure,jdbcType=DECIMAL},
+      </if>
+      <if test="testStopSeepagePartNum != null">
+        #{testStopSeepagePartNum,jdbcType=INTEGER},
+      </if>
+      <if test="testStrength != null">
+        #{testStrength,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="additionalStatement != null">
+        #{additionalStatement,jdbcType=VARCHAR},
+      </if>
+      <if test="testPerson != null">
+        #{testPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="examinePerson != null">
+        #{examinePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="approvePerson != null">
+        #{approvePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="reportDate != null">
+        #{reportDate,jdbcType=DATE},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ruoyi.business.demo.domain.TestReportCB09">
+    update test_report_cb09
+    <set>
+      <if test="testOrgName != null">
+        test_org_name = #{testOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="reportNo != null">
+        report_no = #{reportNo,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null">
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractArea != null">
+        contract_area = #{contractArea,jdbcType=VARCHAR},
+      </if>
+      <if test="constructionOrgName != null">
+        construction_org_name = #{constructionOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="supervisorOrgName != null">
+        supervisor_org_name = #{supervisorOrgName,jdbcType=VARCHAR},
+      </if>
+      <if test="projectPartAndPurpose != null">
+        project_part_and_purpose = #{projectPartAndPurpose,jdbcType=VARCHAR},
+      </if>
+      <if test="sampleInfo != null">
+        sample_info = #{sampleInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="testingBasis != null">
+        testing_basis = #{testingBasis,jdbcType=VARCHAR},
+      </if>
+      <if test="judgmentCriteria != null">
+        judgment_criteria = #{judgmentCriteria,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentNameAndNo != null">
+        equipment_name_and_no = #{equipmentNameAndNo,jdbcType=VARCHAR},
+      </if>
+      <if test="mixProportionNo != null">
+        mix_proportion_no = #{mixProportionNo,jdbcType=VARCHAR},
+      </if>
+      <if test="impermeabilityLevel != null">
+        impermeability_level = #{impermeabilityLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="designStrength != null">
+        design_strength = #{designStrength,jdbcType=VARCHAR},
+      </if>
+      <if test="stirType != null">
+        stir_type = #{stirType,jdbcType=VARCHAR},
+      </if>
+      <if test="formingDate != null">
+        forming_date = #{formingDate,jdbcType=DATE},
+      </if>
+      <if test="slumpsValue != null">
+        slumps_value = #{slumpsValue,jdbcType=DECIMAL},
+      </if>
+      <if test="maintainType != null">
+        maintain_type = #{maintainType,jdbcType=VARCHAR},
+      </if>
+      <if test="ageValue != null">
+        age_value = #{ageValue,jdbcType=INTEGER},
+      </if>
+      <if test="testDate != null">
+        test_date = #{testDate,jdbcType=DATE},
+      </if>
+      <if test="teamNo != null">
+        team_no = #{teamNo,jdbcType=VARCHAR},
+      </if>
+      <if test="testStopWaterPressure != null">
+        test_stop_water_pressure = #{testStopWaterPressure,jdbcType=DECIMAL},
+      </if>
+      <if test="testStopSeepagePartNum != null">
+        test_stop_seepage_part_num = #{testStopSeepagePartNum,jdbcType=INTEGER},
+      </if>
+      <if test="testStrength != null">
+        test_strength = #{testStrength,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        result = #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="additionalStatement != null">
+        additional_statement = #{additionalStatement,jdbcType=VARCHAR},
+      </if>
+      <if test="testPerson != null">
+        test_person = #{testPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="examinePerson != null">
+        examine_person = #{examinePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="approvePerson != null">
+        approve_person = #{approvePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="reportDate != null">
+        report_date = #{reportDate,jdbcType=DATE},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ruoyi.business.demo.domain.TestReportCB09">
+    update test_report_cb09
+    set test_org_name = #{testOrgName,jdbcType=VARCHAR},
+      report_no = #{reportNo,jdbcType=VARCHAR},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      contract_area = #{contractArea,jdbcType=VARCHAR},
+      construction_org_name = #{constructionOrgName,jdbcType=VARCHAR},
+      supervisor_org_name = #{supervisorOrgName,jdbcType=VARCHAR},
+      project_part_and_purpose = #{projectPartAndPurpose,jdbcType=VARCHAR},
+      sample_info = #{sampleInfo,jdbcType=VARCHAR},
+      testing_basis = #{testingBasis,jdbcType=VARCHAR},
+      judgment_criteria = #{judgmentCriteria,jdbcType=VARCHAR},
+      equipment_name_and_no = #{equipmentNameAndNo,jdbcType=VARCHAR},
+      mix_proportion_no = #{mixProportionNo,jdbcType=VARCHAR},
+      impermeability_level = #{impermeabilityLevel,jdbcType=VARCHAR},
+      design_strength = #{designStrength,jdbcType=VARCHAR},
+      stir_type = #{stirType,jdbcType=VARCHAR},
+      forming_date = #{formingDate,jdbcType=DATE},
+      slumps_value = #{slumpsValue,jdbcType=DECIMAL},
+      maintain_type = #{maintainType,jdbcType=VARCHAR},
+      age_value = #{ageValue,jdbcType=INTEGER},
+      test_date = #{testDate,jdbcType=DATE},
+      team_no = #{teamNo,jdbcType=VARCHAR},
+      test_stop_water_pressure = #{testStopWaterPressure,jdbcType=DECIMAL},
+      test_stop_seepage_part_num = #{testStopSeepagePartNum,jdbcType=INTEGER},
+      test_strength = #{testStrength,jdbcType=VARCHAR},
+      result = #{result,jdbcType=VARCHAR},
+      additional_statement = #{additionalStatement,jdbcType=VARCHAR},
+      test_person = #{testPerson,jdbcType=VARCHAR},
+      examine_person = #{examinePerson,jdbcType=VARCHAR},
+      approve_person = #{approvePerson,jdbcType=VARCHAR},
+      report_date = #{reportDate,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectReportList" parameterType="com.ruoyi.business.demo.domain.TestReportCB09" resultMap="BaseResultMap">
+    select * from test_report_cb09
+    <where>
+      <if test="testOrgName != null and testOrgName != ''">
+        and test_org_name like CONCAT("%",#{testOrgName}, "%")
+      </if>
+      <if test="projectName != null and projectName != ''">
+        and project_name like CONCAT("%",#{projectName}, "%")
+      </if>
+    </where>
+    order by id
+  </select>
+</mapper>

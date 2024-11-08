@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.TurangMapper">
+
+	<resultMap type="Turang" id="TurangResult">
+		<id     property="id"       column="id"      />
+		<result property="name"       column="name"      />
+		<result property="wendu"     column="wendu"    />
+		<result property="shidu"     column="shidu"    />
+		<result property="createdate"        column="createdate"        />
+	</resultMap>
+
+	<select id="selectTurangList" parameterType="Turang"
+			resultMap="TurangResult">
+		select * from turang
+		where 1 = 1
+		<if test="name != null and name != ''">
+			AND name = #{name}
+		</if>
+		<if test="wendu != null and wendu != ''">
+			AND wendu like concat('%', #{wendu}, '%')
+		</if>
+		<!-- 数据范围过滤 -->
+		${params.dataScope}
+	</select>
+
+	<select id="selectTurangById" parameterType="Long"
+			resultMap="TurangResult">
+		select * from turang where id = #{id}
+	</select>
+
+	<insert id="insertTurang" parameterType="Turang"
+			useGeneratedKeys="true"
+			keyProperty="id">
+		insert into turang(
+		<if test="name != null and name != ''">name,</if>
+		<if test="wendu != null and wendu != ''">wendu,</if>
+		<if test="shidu != null and shidu != ''">shidu,</if>
+		<if test="createdate != null">createdate,</if>
+		id
+		)values(
+		<if test="name != null and name != ''">#{name},</if>
+		<if test="wendu != null and wendu != ''">#{wendu},</if>
+		<if test="shidu != null and shidu != ''">#{shidu},</if>
+		<if test="createdate != null">#{createdate},</if>
+		null
+		)
+	</insert>
+
+	<update id="updateTurang" parameterType="Turang">
+		update turang
+		<set>
+			<if test="name != null and name != ''">
+				name = #{name},
+			</if>
+			<if test="wendu != null and wendu != ''">
+				wendu = #{wendu},
+			</if>
+			<if test="shidu != null and shidu != ''">
+				shidu = #{shidu},
+			</if>
+			<if test="createdate != null">
+				createdate = #{createdate},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<delete id="deleteTurangById" parameterType="Long">
+		delete from turang where id = #{id}
+	</delete>
+
+	<delete id="deleteTurangByIds" parameterType="Long">
+		delete from turang where id in
+		<foreach collection="array" item="id"
+				 open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

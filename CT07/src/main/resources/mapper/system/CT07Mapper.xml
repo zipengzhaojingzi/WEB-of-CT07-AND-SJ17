@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.CT07Mapper">
+
+	<resultMap type="CT07" id="CT07Result">
+		<id     property="id"       column="id"      />
+		<result property="jcdwmc"       column="jcdwmc"      />
+		<result property="jlbh"     column="jlbh"    />
+		<result property="gcmc"     column="gcmc"    />
+		<result property="htd"        column="htd"        />
+		<result property="sgdw"       column="sgdw"      />
+		<result property="jldw"     column="jldw"    />
+		<result property="gcbwyt"     column="gcbwyt"    />
+		<result property="ypxx"        column="ypxx"        />
+		<result property="syjcrq"        column="syjcrq"        />
+		<result property="wd"       column="wd"      />
+		<result property="xdsd"     column="xdsd"    />
+		<result property="jcyj"     column="jcyj"    />
+		<result property="pdyj"        column="pdyj"        />
+		<result property="zyyqsbmcjbh"       column="zyyqsbmcjbh"      />
+		<result property="qydd"     column="qydd"    />
+		<result property="qysd"     column="qysd"    />
+		<result property="qyrq"     column="qyrq"    />
+		<result property="zdgmd"        column="zdgmd"        />
+		<result property="zjhsl"       column="zjhsl"      />
+		<result property="mcjs"     column="mcjs"    />
+		<result property="grgmjA"     column="grgmjA"    />
+		<result property="a"        column="a"        />
+		<result property="b"       column="b"      />
+		<result property="cjhjzxs"     column="cjhjzxs"    />
+		<result property="th1"     column="th1"    />
+		<result property="th2"     column="th2"    />
+		<result property="th3"     column="th3"    />
+		<result property="min"     column="min"    />
+		<result property="max"     column="max"    />
+		<result property="position"        column="position"        />
+		<result property="time"       column="time"      />
+		<result property="userid"       column="userid"      />
+	</resultMap>
+
+	<select id="selectCT07List" parameterType="CT07"
+			resultMap="CT07Result">
+		select * from ct07
+		where 1 = 1
+		<if test="gcmc != null and gcmc != ''">
+			AND gcmc = #{gcmc}
+		</if>
+		<if test="jlbh != null and jlbh != ''">
+			AND jlbh like concat('%', #{jlbh}, '%')
+		</if>
+		<!-- 数据范围过滤 -->
+		${params.dataScope}
+	</select>
+
+	<select id="selectCT07" parameterType="Long"
+			resultMap="CT07Result">
+		select * from ct07 where id = #{id}
+	</select>
+
+	<insert id="insertCT07" parameterType="CT07"
+			useGeneratedKeys="true"
+			keyProperty="id">
+		insert into ct07(
+		<if test="jcdwmc != null and jcdwmc != ''">jcdwmc,</if>
+		<if test="jlbh != null and jlbh != ''">jlbh,</if>
+		<if test="gcmc != null and gcmc != ''">gcmc,</if>
+		<if test="htd != null and htd != ''">htd,</if>
+		<if test="sgdw != null and sgdw != ''">sgdw,</if>
+		<if test="jldw != null and jldw != ''">jldw,</if>
+		<if test="gcbwyt != null and gcbwyt != ''">gcbwyt,</if>
+		<if test="ypxx != null and ypxx != ''">ypxx,</if>
+		<if test="syjcrq != null ">syjcrq,</if>
+		<if test="wd != null and wd != ''">wd,</if>
+		<if test="xdsd != null and xdsd != ''">xdsd,</if>
+		<if test="jcyj != null and jcyj != ''">jcyj,</if>
+		<if test="pdyj != null and pdyj != ''">pdyj,</if>
+		<if test="zyyqsbmcjbh != null and zyyqsbmcjbh != ''">zyyqsbmcjbh,</if>
+		<if test="qydd != null and qydd != ''">qydd,</if>
+		<if test="qysd != null and qysd != ''">qysd,</if>
+		<if test="qyrq != null ">qyrq,</if>
+		<if test="zdgmd != null and zdgmd != ''">zdgmd,</if>
+		<if test="zjhsl != null and zjhsl != ''">zjhsl,</if>
+		<if test="mcjs != null and mcjs != ''">mcjs,</if>
+		<if test="grgmjA != null and grgmjA != ''">grgmjA,</if>
+		<if test="a != null and a != ''">a,</if>
+		<if test="b != null and b != ''">b,</if>
+		<if test="clhjzxs != null and clhjzxs != ''">clhjzxs,</if>
+		<if test="th1 != null and th1 != ''">th1,</if>
+		<if test="th2 != null and th2 != ''">th2,</if>
+		<if test="th3 != null and th3 != ''">th3,</if>
+		<if test="min != null and min != ''">min,</if>
+		<if test="max != null and max != ''">max,</if>
+		<if test="position != null and position != ''">position,</if>
+		<if test="time != null ">time ,</if>
+		<if test="userid != null and userid != ''">userid ,</if>
+		id
+		)values(
+		<if test="jcdwmc != null and jcdwmc != ''">#{jcdwmc},</if>
+		<if test="jlbh != null and jlbh != ''">#{jlbh},</if>
+		<if test="gcmc != null and gcmc != ''">#{gcmc},</if>
+		<if test="htd != null and htd != ''">#{htd},</if>
+		<if test="sgdw != null and sgdw != ''">#{sgdw},</if>
+		<if test="jldw != null and jldw != ''">#{jldw},</if>
+		<if test="gcbwyt != null and gcbwyt != ''">#{gcbwyt},</if>
+		<if test="ypxx != null and ypxx != ''">#{ypxx},</if>
+		<if test="syjcrq != null ">#{syjcrq},</if>
+		<if test="wd != null and wd != ''">#{wd},</if>
+		<if test="xdsd != null and xdsd != ''">#{xdsd},</if>
+		<if test="jcyj != null and jcyj != ''">#{jcyj},</if>
+		<if test="pdyj != null and pdyj != ''">#{pdyj},</if>
+		<if test="zyyqsbmcjbh != null and zyyqsbmcjbh != ''">#{zyyqsbmcjbh},</if>
+		<if test="qydd != null and qydd != ''">#{qydd},</if>
+		<if test="qysd != null and qysd != ''">#{qysd},</if>
+		<if test="qyrq != null ">#{qyrq},</if>
+		<if test="zdgmd != null and zdgmd != ''">#{zdgmd},</if>
+		<if test="zjhsl != null and zjhsl != ''">#{zjhsl},</if>
+		<if test="mcjs != null and mcjs != ''">#{mcjs},</if>
+		<if test="grgmjA != null and grgmjA != ''">#{grgmjA},</if>
+		<if test="a != null and a != ''">#{a},</if>
+		<if test="b != null and b != ''">#{b},</if>
+		<if test="clhjzxs != null and clhjzxs != ''">#{clhjzxs},</if>
+		<if test="th1 != null and th1 != ''">#{th1},</if>
+		<if test="th2 != null and th2 != ''">#{th2},</if>
+		<if test="th3 != null and th3 != ''">#{th3},</if>
+		<if test="min != null and min != ''">#{min},</if>
+		<if test="max != null and max != ''">#{max},</if>
+		<if test="position != null and position != ''">#{position},</if>
+		<if test="time != null ">#{time},</if>
+		<if test="userid != null and userid != ''">#{userid},</if>
+		null
+		)
+	</insert>
+
+	<update id="updateCT07" parameterType="CT07">
+		update ct07
+		<set>
+			<if test="id != null and id != ''">
+				id = #{id},
+			</if>
+			<if test="jcdwmc != null and jcdwmc != ''">
+		    	jcdwmc = #{jcdwmc},
+		    </if>
+			<if test="jlbh != null and jlbh != ''">
+		    	jlbh = #{jlbh},
+		    </if>
+			<if test="gcmc != null and gcmc != ''">
+		    	gcmc = #{gcmc},
+		    </if>
+			<if test="htd != null and htd != ''">
+		    	htd = #{htd},
+		    </if>
+			<if test="sgdw != null and sgdw != ''">
+		    	sgdw = #{sgdw},
+		    </if>
+			<if test="jldw != null and jldw != ''">
+		    	jldw = #{jldw},
+		    </if>
+			<if test="gcbwyt != null and gcbwyt != ''">
+		    	gcbwyt = #{gcbwyt},
+		    </if>
+			<if test="ypxx != null and ypxx != ''">
+		    	ypxx = #{ypxx},
+		    </if>
+			<if test="syjcrq != null ">
+		    	syjcrq = #{syjcrq},
+		    </if>
+			<if test="wd != null and wd != ''">
+		    	wd = #{wd},
+		    </if>
+			<if test="xdsd != null and xdsd != ''">
+		    	xdsd = #{xdsd},
+		    </if>
+			<if test="jcyj != null and jcyj != ''">
+		    	jcyj = #{jcyj},
+		    </if>
+			<if test="pdyj != null and pdyj != ''">
+		    	pdyj = #{pdyj},
+		    </if>
+			<if test="zyyqsbmcjbh != null and zyyqsbmcjbh != ''">
+		    	zyyqsbmcjbh = #{zyyqsbmcjbh},
+		    </if>
+			<if test="qydd != null and qydd != ''">
+		    	qydd = #{qydd},
+		    </if>
+			<if test="qysd != null and qysd != ''">
+		    	qysd = #{qysd},
+		    </if>
+			<if test="qyrq != null ">
+		    	qyrq = #{qyrq},
+		    </if>
+			<if test="zdgmd != null and zdgmd != ''">
+		    	zdgmd = #{zdgmd},
+		    </if>
+			<if test="zjhsl != null and zjhsl != ''">
+		    	zjhsl = #{zjhsl},
+		    </if>
+			<if test="mcjs != null and mcjs != ''">
+		    	mcjs = #{mcjs},
+		    </if>
+			<if test="grgmjA != null and grgmjA != ''">
+		    	grgmjA= #{grgmjA},
+		    </if>
+			<if test="a != null and a != ''">
+		    	a = #{a},
+		    </if>
+			<if test="b != null and b != ''">
+		    	b = #{b},
+		    </if>
+			<if test="clhjzxs != null and clhjzxs != ''">
+		    	clhjzxs = #{clhjzxs},
+		    </if>
+			<if test="th1 != null and th1 != ''">
+				th1 = #{th1},
+		    </if>
+			<if test="th2 != null and th2 != ''">
+				th2 = #{th2},
+			</if>
+			<if test="th3 != null and th3 != ''">
+				th3 = #{th3},
+			</if>
+			<if test="min != null and min != ''">
+		    	min = #{min},
+		    </if>
+			<if test="max != null and max != ''">
+		    	max = #{max},
+		    </if>
+			<if test="position != null and position != ''">
+		    	position = #{position},
+		    </if>
+			<if test="time != null ">
+				time = #{time},
+		    </if>
+			<if test="userid != null and userid != ''">
+				userid = #{userid},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<delete id="deleteCT07ById" parameterType="Long">
+		delete from ct07 where id = #{id}
+	</delete>
+
+<!--	<delete id="deleteCT07ByJlbh" parameterType="Long">-->
+<!--		delete from ct07 where jlbh = #{jlbh}-->
+<!--	</delete>-->
+
+	<delete id="deleteCT07ByIds" parameterType="Long">
+		delete from ct07 where id in
+		<foreach collection="array" item="id"
+				 open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+<!--	<delete id="deleteCT07ByJlbhs" parameterType="Long">-->
+<!--		delete from ct07 where jlbh in-->
+<!--		<foreach collection="array" item="jlbh"-->
+<!--				 open="(" separator="," close=")">-->
+<!--			#{jlbh}-->
+<!--		</foreach>-->
+<!--	</delete>-->
+
+</mapper>

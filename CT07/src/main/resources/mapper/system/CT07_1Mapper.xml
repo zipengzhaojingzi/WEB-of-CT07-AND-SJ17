@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.CT07_1Mapper">
+
+	<resultMap type="CT07_1" id="CT07_1Result">
+		<id     property="id"       column="id"      />
+		<result property="th1"     column="th1"    />
+		<result property="clhbfbds1"        column="clhbfbds1"        />
+		<result property="dwyl1"       column="dwyl1"      />
+		<result property="z1"     column="z1"    />
+		<result property="y1"     column="y1"    />
+		<result property="pjz1"        column="pjz1"        />
+		<result property="grl1"       column="grl1"      />
+	</resultMap>
+
+	<select id="selectCT07_1List" parameterType="String"
+			resultMap="CT07_1Result">
+		select * from ct07_1
+		where 1 = 1
+		<if test="th1 != null and th1 != ''">
+			AND th1 = #{th1}
+		</if>
+-- 		order by clhbfbds1
+		<!-- 数据范围过滤
+		${params.dataScope}-->
+	</select>
+
+	<select id="selectCT07_1" parameterType="Long"
+			resultMap="CT07_1Result">
+		select * from ct07_1 where id = #{id}
+	</select>
+
+	<insert id="insertCT07_1" parameterType="CT07_1"
+			useGeneratedKeys="true"
+			keyProperty="id">
+		insert into ct07_1(
+		<if test="th1 != null and th1 != ''">th1,</if>
+		<if test="clhbfbds1 != null and clhbfbds1 != ''">clhbfbds1,</if>
+		<if test="dwyl1 != null and dwyl1 != ''">dwyl1,</if>
+		<if test="z1 != null and z1 != ''">z1,</if>
+		<if test="y1 != null and y1 != ''">y1,</if>
+		<if test="pjz1 != null and pjz1 != ''">pjz1,</if>
+		<if test="grl1 != null and grl1 != ''">grl1,</if>
+		id
+		)values(
+		<if test="th1 != null and th1 != ''">#{th1},</if>
+		<if test="clhbfbds1 != null and clhbfbds1 != ''">#{clhbfbds1},</if>
+		<if test="dwyl1 != null and dwyl1 != ''">#{dwyl1},</if>
+		<if test="z1 != null and z1 != ''">#{z1},</if>
+		<if test="y1 != null and y1 != ''">#{y1},</if>
+		<if test="pjz1 != null and pjz1 != ''">#{pjz1},</if>
+		<if test="grl1 != null and grl1 != ''">#{grl1},</if>
+		#{id}
+		)
+	</insert>
+
+	<update id="updateCT07_1" parameterType="CT07_1">
+		update ct07_1
+		<set>
+			<if test="th1 != null and th1 != ''">
+				th1 = #{th1},
+		    </if>
+			<if test="clhbfbds1 != null and clhbfbds1 != ''">
+				clhbfbds1 = #{clhbfbds1},
+		    </if>
+			<if test="dwyl1 != null and dwyl1 != ''">
+				dwyl1 = #{dwyl1},
+		    </if>
+			<if test="z1 != null and z1 != ''">
+				z1 = #{z1},
+		    </if>
+			<if test="y1 != null and y1 != ''">
+				y1 = #{y1},
+		    </if>
+			<if test="pjz1 != null and pjz1 != ''">
+				pjz1 = #{pjz1},
+		    </if>
+			<if test="grl1 != null and grl1 != ''">
+				grl1 = #{grl1},
+		    </if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<delete id="deleteCT07_1ById" parameterType="Long">
+		delete from ct07_1 where id = #{id}
+	</delete>
+
+	<delete id="deleteCT07_1ByIds" parameterType="Long">
+		delete from ct07_1 where id in
+		<foreach collection="array" item="id"
+				 open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+
+</mapper>
