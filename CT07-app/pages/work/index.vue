@@ -11,7 +11,12 @@
 						<text class="text">土承载比试验检测记录表</text>
 					</view>
 				</uni-grid-item>
-
+				<uni-grid-item>
+					<view class="grid-item-box" @click="toTurang">
+						<uni-icons type="person-filled" size="30"></uni-icons>
+						<text class="text">工程数据</text>
+					</view>
+				</uni-grid-item>
 				<!-- <uni-grid-item>
 					<view class="grid-item-box" @click="toCT07">
 						<uni-icons type="person-filled" size="30"></uni-icons>
@@ -81,6 +86,12 @@
 			toCT07(e) {
 				console.log(1111)
 				this.$tab.navigateTo('/pages/work/ct07/ct07')
+			},
+			toTurang(e) {
+				console.log(1111)
+
+				this.$tab.navigateTo('/pages/work/sj17/sj17')
+
 			}
 		}
 	}

@@ -81,13 +81,13 @@
 				"navigationBarTitleText": "【查询】硬化后水泥混凝土性能试验检测报告"
 			}
 		}, {
-			"path": "pages/work/turang/turang",
+			"path": "pages/work/sj17/sj17",
 			"style": {
 				"navigationBarTitleText": "土壤数据列表"
 			}
 		},
 		{
-			"path": "pages/work/turang/addTurang",
+			"path": "pages/work/sj17/addSj17",
 			"style": {
 				"navigationBarTitleText": "添加土壤数据"
 			}
