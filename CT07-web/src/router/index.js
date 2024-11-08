@@ -77,13 +77,23 @@ export const constantRoutes = [{
 				}
 			},
 			{
-				path: '/datasystem',
+				path: '/datasystemct07',
 				component: () => import('@/views/datasystem/ct07/index'),
 				hidden: true
 			},
 			{
-				path: '/detail',
+				path: '/detailct07',
 				component: () => import('@/views/datasystem/ct07/detail'),
+				hidden: true
+			},
+			{
+				path: '/datasystemsj17',
+				component: () => import('@/views/datasystem/sj17/index'),
+				hidden: true
+			},
+			{
+				path: '/detailsj17',
+				component: () => import('@/views/datasystem/sj17/detail'),
 				hidden: true
 			}
 		]

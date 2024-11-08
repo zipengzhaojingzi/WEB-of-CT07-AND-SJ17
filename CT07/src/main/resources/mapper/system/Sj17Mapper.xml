@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.Sj17Mapper">
+
+    <resultMap type="Sj17" id="Sj17Result">
+        <id     property="id"       column="id"      />
+        <result property="hth"       column="hth"      />
+        <result property="sgdw"     column="sgdw"    />
+        <result property="jldw"     column="jldw"    />
+        <result property="sgsj"   column="sgsj"        />
+    </resultMap>
+	
+    <select id="selectSj17List" parameterType="Sj17"
+			resultMap="Sj17Result">
+		select * from sj17
+		where 1 = 1
+		<if test="hth != null and hth != ''">
+			AND hth = #{hth}
+		</if>
+		<if test="sgdw != null and sgdw != ''">
+			AND sgdw like concat('%', #{sgdw}, '%')
+		</if>
+		<!-- 数据范围过滤 -->
+		${params.dataScope}
+	</select>
+	
+	<select id="selectSj17ById" parameterType="Long"
+			resultMap="Sj17Result">
+	    select * from sj17 where id = #{id}
+	</select>
+	
+	<insert id="insertSj17" parameterType="Sj17"
+			useGeneratedKeys="true"
+			keyProperty="id">
+ 		insert into sj17(
+ 			<if test="hth != null and hth != ''">hth,</if>
+ 			<if test="sgdw != null and sgdw != ''">sgdw,</if>
+ 			<if test="jldw != null and jldw != ''">jldw,</if>
+ 			<if test="sgsj != null">sgsj,</if>
+ 			id
+ 		)values(
+ 			<if test="hth != null and hth != ''">#{hth},</if>
+ 			<if test="sgdw != null and sgdw != ''">#{sgdw},</if>
+ 			<if test="jldw != null and jldw != ''">#{jldw},</if>
+ 			<if test="sgsj != null ">#{sgsj},</if>
+ 			null
+ 		)
+	</insert>
+	
+	<update id="updateSj17" parameterType="Sj17">
+ 		update sj17
+ 		<set>
+ 			<if test="hth != null and hth != ''">
+ 			    hth = #{hth},
+ 			</if>
+ 			<if test="sgdw != null and sgdw != ''">
+				sgdw = #{sgdw},
+			</if>
+ 			<if test="jldw != null and jldw != ''">
+ 			jldw = #{jldw},
+ 			</if>
+ 			<if test="sgsj != null">
+ 			sgsj = #{sgsj},
+ 			</if>
+ 		</set>
+ 		where id = #{id}
+	</update>
+	
+	<delete id="deleteSj17ById" parameterType="Long">
+ 		delete from sj17 where id = #{id}
+ 	</delete>
+ 	
+ 	<delete id="deleteSj17ByIds" parameterType="Long">
+ 		delete from sj17 where id in
+ 		<foreach collection="array" item="id"
+				 open="(" separator="," close=")">
+ 			#{id}
+        </foreach> 
+ 	</delete>
+	
+</mapper> 
