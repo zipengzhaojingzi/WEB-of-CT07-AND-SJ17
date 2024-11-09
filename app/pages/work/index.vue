@@ -14,7 +14,7 @@
 				<uni-grid-item>
 					<view class="grid-item-box" @click="toTurang">
 						<uni-icons type="person-filled" size="30"></uni-icons>
-						<text class="text">工程数据</text>
+						<text class="text">沥青混凝土路面面层施工记录表</text>
 					</view>
 				</uni-grid-item>
 				<!-- <uni-grid-item>

@@ -10,6 +10,44 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="sgdw"     column="sgdw"    />
         <result property="jldw"     column="jldw"    />
         <result property="sgsj"   column="sgsj"        />
+        <result property="bh"   column="bh"        />
+        <result property="gcmc"   column="gcmc"        />
+        <result property="zhjgcbw"   column="zhjgcbw"        />
+        <result property="jglx"   column="jglx"        />
+        <result property="bhfs"   column="bhfs"        />
+        <result property="yshd"   column="yshd"        />
+        <result property="mpyl"   column="mpyl"        />
+        <result property="kd"   column="kd"        />
+        <result property="clwd"   column="clwd"        />
+        <result property="hp"   column="hp"        />
+        <result property="ysbjc"   column="ysbjc"        />
+        <result property="ysb"   column="ysb"        />
+        <result property="ysfs"   column="ysfs"        />
+        <result property="lqjcqk"   column="lqjcqk"        />
+        <result property="ddwd"   column="ddwd"        />
+        <result property="tpff"   column="tpff"        />
+        <result property="tpwd"   column="tpwd"        />
+        <result property="cjlysmc"   column="cjlysmc"        />
+        <result property="pzd"   column="pzd"        />
+        <result property="tcllb"   column="tcllb"        />
+        <result property="hd"   column="hd"        />
+        <result property="jlphb"   column="jlphb"        />
+        <result property="tphp"   column="tphp"        />
+        <result property="xcjpqk"   column="xcjpqk"        />
+        <result property="nyjj"   column="nyjj"        />
+        <result property="lcfwrcs"   column="lcfwrcs"        />
+        <result property="nybs"   column="nybs"        />
+        <result property="cpqk"   column="cpqk"        />
+        <result property="nyzl"   column="nyzl"        />
+        <result property="jwjl"   column="jwjl"        />
+        <result property="nywd"   column="nywd"        />
+        <result property="kljrwd"   column="kljrwd"        />
+        <result property="nyjswd"   column="nyjswd"        />
+        <result property="kgqw"   column="kgqw"        />
+        <result property="jsqw"   column="jsqw"        />
+        <result property="qwbhqk"   column="qwbhqk"        />
+        <result property="sgy"   column="sgy"        />
+        <result property="zygcs"   column="zygcs"        />
     </resultMap>
 	
     <select id="selectSj17List" parameterType="Sj17"
@@ -39,12 +77,88 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			<if test="sgdw != null and sgdw != ''">sgdw,</if>
  			<if test="jldw != null and jldw != ''">jldw,</if>
  			<if test="sgsj != null">sgsj,</if>
+			<if test="bh != null and bh != ''">bh,</if>
+			<if test="gcmc != null and gcmc != ''">gcmc,</if>
+			<if test="zhjgcbw != null and zhjgcbw != ''">zhjgcbw,</if>
+			<if test="jglx != null and jglx != ''">jglx,</if>
+			<if test="bhfs != null and bhfs != ''">bhfs,</if>
+			<if test="yshd != null and yshd != ''">yshd,</if>
+			<if test="mpyl != null and mpyl != ''">mpyl,</if>
+			<if test="kd != null and kd != ''">kd,</if>
+			<if test="clwd != null and clwd != ''">clwd,</if>
+			<if test="hp != null and hp != ''">hp,</if>
+			<if test="ysbjc != null and ysbjc != ''">ysbjc,</if>
+			<if test="ysb != null and ysb != ''">ysb,</if>
+			<if test="ysfs != null and ysfs != ''">ysfs,</if>
+			<if test="lqjcqk != null and lqjcqk != ''">lqjcqk,</if>
+			<if test="ddwd != null and ddwd != ''">ddwd,</if>
+			<if test="tpff != null and tpff != ''">tpff,</if>
+			<if test="tpwd != null and tpwd != ''">tpwd,</if>
+			<if test="cjlysmc != null and cjlysmc != ''">cjlysmc,</if>
+			<if test="pzd != null and pzd != ''">pzd,</if>
+			<if test="tcllb != null and tcllb != ''">tcllb,</if>
+			<if test="hd != null and hd != ''">hd,</if>
+			<if test="jlphb != null and jlphb != ''">jlphb,</if>
+			<if test="tphp != null and tphp != ''">tphp,</if>
+			<if test="xcjpqk != null and xcjpqk != ''">xcjpqk,</if>
+			<if test="nyjj != null and nyjj != ''">nyjj,</if>
+			<if test="lcfwrcs != null and lcfwrcs != ''">lcfwrcs,</if>
+			<if test="nybs != null and nybs != ''">nybs,</if>
+			<if test="cpqk != null and cpqk != ''">cpqk,</if>
+			<if test="nyzl != null and nyzl != ''">nyzl,</if>
+			<if test="jwjl != null and jwjl != ''">jwjl,</if>
+			<if test="nywd != null and nywd != ''">nywd,</if>
+			<if test="kljrwd != null and kljrwd != ''">kljrwd,</if>
+			<if test="nyjswd != null and nyjswd != ''">nyjswd,</if>
+			<if test="kgqw != null and kgqw != ''">kgqw,</if>
+			<if test="jsqw != null and jsqw != ''">jsqw,</if>
+			<if test="qwbhqk != null and qwbhqk != ''">qwbhqk,</if>
+			<if test="sgy != null and sgy != ''">sgy,</if>
+			<if test="zygcs != null and zygcs != ''">zygcs,</if>
  			id
  		)values(
  			<if test="hth != null and hth != ''">#{hth},</if>
  			<if test="sgdw != null and sgdw != ''">#{sgdw},</if>
  			<if test="jldw != null and jldw != ''">#{jldw},</if>
  			<if test="sgsj != null ">#{sgsj},</if>
+			<if test="bh != null and bh != ''">#{bh},</if>
+			<if test="gcmc != null and gcmc != ''">#{gcmc},</if>
+			<if test="zhjgcbw != null and zhjgcbw != ''">#{zhjgcbw},</if>
+			<if test="jglx != null and jglx != ''">#{jglx},</if>
+			<if test="bhfs != null and bhfs != ''">#{bhfs},</if>
+			<if test="yshd != null and yshd != ''">#{yshd},</if>
+			<if test="mpyl != null and mpyl != ''">#{mpyl},</if>
+			<if test="kd != null and kd != ''">#{kd},</if>
+			<if test="clwd != null and clwd != ''">#{clwd},</if>
+			<if test="hp != null and hp != ''">#{hp},</if>
+			<if test="ysbjc != null and ysbjc != ''">#{ysbjc},</if>
+			<if test="ysb != null and ysb != ''">#{ysb},</if>
+			<if test="ysfs != null and ysfs != ''">#{ysfs},</if>
+			<if test="lqjcqk != null and lqjcqk != ''">#{lqjcqk},</if>
+			<if test="ddwd != null and ddwd != ''">#{ddwd},</if>
+			<if test="tpff != null and tpff != ''">#{tpff},</if>
+			<if test="tpwd != null and tpwd != ''">#{tpwd},</if>
+			<if test="cjlysmc != null and cjlysmc != ''">#{cjlysmc},</if>
+			<if test="pzd != null and pzd != ''">#{pzd},</if>
+			<if test="tcllb != null and tcllb != ''">#{tcllb},</if>
+			<if test="hd != null and hd != ''">#{hd},</if>
+			<if test="jlphb != null and jlphb != ''">#{jlphb},</if>
+			<if test="tphp != null and tphp != ''">#{tphp},</if>
+			<if test="xcjpqk != null and xcjpqk != ''">#{xcjpqk},</if>
+			<if test="nyjj != null and nyjj != ''">#{nyjj},</if>
+			<if test="lcfwrcs != null and lcfwrcs != ''">#{lcfwrcs},</if>
+			<if test="nybs != null and nybs != ''">#{nybs},</if>
+			<if test="cpqk != null and cpqk != ''">#{cpqk},</if>
+			<if test="nyzl != null and nyzl != ''">#{nyzl},</if>
+			<if test="jwjl != null and jwjl != ''">#{jwjl},</if>
+			<if test="nywd != null and nywd != ''">#{nywd},</if>
+			<if test="kljrwd != null and kljrwd != ''">#{kljrwd},</if>
+			<if test="nyjswd != null and nyjswd != ''">#{nyjswd},</if>
+			<if test="kgqw != null and kgqw != ''">#{kgqw},</if>
+			<if test="jsqw != null and jsqw != ''">#{jsqw},</if>
+			<if test="qwbhqk != null and qwbhqk != ''">#{qwbhqk},</if>
+			<if test="sgy != null and sgy != ''">#{sgy},</if>
+			<if test="zygcs != null and zygcs != ''">#{zygcs},</if>
  			null
  		)
 	</insert>
@@ -64,6 +178,44 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			<if test="sgsj != null">
  			sgsj = #{sgsj},
  			</if>
+			<if test="bh != null and bh != ''">bh =#{bh},</if>
+			<if test="gcmc != null and gcmc != ''">gcmc =#{gcmc},</if>
+			<if test="zhjgcbw != null and zhjgcbw != ''">zhjgcbw =#{zhjgcbw},</if>
+			<if test="jglx != null and jglx != ''">jglx =#{jglx},</if>
+			<if test="bhfs != null and bhfs != ''">bhfs =#{bhfs},</if>
+			<if test="yshd != null and yshd != ''">yshd =#{yshd},</if>
+			<if test="mpyl != null and mpyl != ''">mpyl =#{mpyl},</if>
+			<if test="kd != null and kd != ''">kd =#{kd},</if>
+			<if test="clwd != null and clwd != ''">clwd =#{clwd},</if>
+			<if test="hp != null and hp != ''">hp =#{hp},</if>
+			<if test="ysbjc != null and ysbjc != ''">ysbjc =#{ysbjc},</if>
+			<if test="ysb != null and ysb != ''">ysb =#{ysb},</if>
+			<if test="ysfs != null and ysfs != ''">ysfs =#{ysfs},</if>
+			<if test="lqjcqk != null and lqjcqk != ''">lqjcqk =#{lqjcqk},</if>
+			<if test="ddwd != null and ddwd != ''">ddwd =#{ddwd},</if>
+			<if test="tpff != null and tpff != ''">tpff =#{tpff},</if>
+			<if test="tpwd != null and tpwd != ''">tpwd =#{tpwd},</if>
+			<if test="cjlysmc != null and cjlysmc != ''">cjlysmc =#{cjlysmc},</if>
+			<if test="pzd != null and pzd != ''">pzd =#{pzd},</if>
+			<if test="tcllb != null and tcllb != ''">tcllb =#{tcllb},</if>
+			<if test="hd != null and hd != ''">hd =#{hd},</if>
+			<if test="jlphb != null and jlphb != ''">jlphb =#{jlphb},</if>
+			<if test="tphp != null and tphp != ''">tphp =#{tphp},</if>
+			<if test="xcjpqk != null and xcjpqk != ''">xcjpqk =#{xcjpqk},</if>
+			<if test="nyjj != null and nyjj != ''">nyjj =#{nyjj},</if>
+			<if test="lcfwrcs != null and lcfwrcs != ''">lcfwrcs =#{lcfwrcs},</if>
+			<if test="nybs != null and nybs != ''">nybs =#{nybs},</if>
+			<if test="cpqk != null and cpqk != ''">cpqk =#{cpqk},</if>
+			<if test="nyzl != null and nyzl != ''">nyzl =#{nyzl},</if>
+			<if test="jwjl != null and jwjl != ''">jwjl =#{jwjl},</if>
+			<if test="nywd != null and nywd != ''">nywd =#{nywd},</if>
+			<if test="kljrwd != null and kljrwd != ''">kljrwd =#{kljrwd},</if>
+			<if test="nyjswd != null and nyjswd != ''">nyjswd =#{nyjswd},</if>
+			<if test="kgqw != null and kgqw != ''">kgqw =#{kgqw},</if>
+			<if test="jsqw != null and jsqw != ''">jsqw =#{jsqw},</if>
+			<if test="qwbhqk != null and qwbhqk != ''">qwbhqk =#{qwbhqk},</if>
+			<if test="sgy != null and sgy != ''">sgy =#{sgy},</if>
+			<if test="zygcs != null and zygcs != ''">zygcs =#{zygcs},</if>
  		</set>
  		where id = #{id}
 	</update>

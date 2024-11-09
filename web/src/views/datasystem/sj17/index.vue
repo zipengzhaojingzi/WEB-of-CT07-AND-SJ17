@@ -50,7 +50,7 @@
 					<el-table-column label="操作" align="center" width="150" class-name="small-padding fixed-width">
 						<template #default="scope">
 							<el-tooltip content="查看详情" placement="top" v-if="scope.row.id !== 1">
-								<el-button link type="primary" icon="Edit" @click="Detail(scope.row)"
+								<el-button link type="primary"  icon="view" @click="Detail(scope.row)"
 									v-hasPermi="['system:user:remove']"></el-button>
 								<!-- there are some places needed to modify -->
 							</el-tooltip>
@@ -72,7 +72,7 @@
 			</el-col>
 		</el-row>
 
-		<!-- 添加或修改土壤数据配置对话框 -->
+		<!-- 添加或修改数据配置对话框 -->
 		<el-dialog :title="title" v-model="open" width="600px" append-to-body>
 			<el-form :model="form" :rules="rules" ref="userRef" label-width="80px">
 				<el-row>
@@ -88,25 +88,273 @@
 					</el-col>
 				</el-row>
 				<el-row>
-					<el-col :span="24">
-						<el-form-item label="施工单位" prop="sgdw">
-							<el-input v-model="form.sgdw" placeholder="请输入施工单位" maxlength="30" />
-						</el-form-item>
-					</el-col>
-				</el-row>
-				<el-row>
-					<el-col :span="24">
+					<el-col :span="12">
 						<el-form-item label="监理单位" prop="jldw">
 							<el-input v-model="form.jldw" placeholder="请输入监理单位" maxlength="30" />
 						</el-form-item>
 					</el-col>
+					<el-col :span="12">
+						<el-form-item label="编号" prop="bh">
+							<el-input v-model="form.bh" placeholder="请输入编号" maxlength="30" />
+						</el-form-item>
+					</el-col>
+				</el-row>
+				<el-row>
+					<el-col :span="12">
+						<el-form-item label="工程名称" prop="gcmc">
+							<el-input v-model="form.gcmc" placeholder="请输入工程名称" maxlength="30" />
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="施工时间" prop="sgsj">
+							<!-- <el-input v-model="form.sgsj" placeholder="请输入施工时间" maxlength="30" /> -->
+							<el-date-picker v-model="form.sgsj" value-format="YYYY-MM-DD" type="date"
+								style="width: 100%;"></el-date-picker>
+						</el-form-item>
+					</el-col>
+				</el-row>
+				<el-row>
+					<el-col :span="24"> 
+						<el-form-item  label="桩号及工程部位" prop="zhjgcbw" label-width="110px">
+							<el-input  v-model="form.zhjgcbw" placeholder="请输入桩号及工程部位" maxlength="30" />
+						</el-form-item>
+					</el-col>
+				</el-row>
+				<el-row>
+					<el-col :span="12">
+						<el-form-item label="结构类型" prop="jglx">
+							<el-input v-model="form.jglx" placeholder="请输入结构类型" maxlength="30" />
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="拌合方式" prop="bhfs">
+							<el-select v-model="form.bhfs" placeholder="请输入拌合方式" style="width: 100%">
+          <el-option label="设备集中拌和" value="设备集中拌和" />
+        </el-select>
+						</el-form-item>
+					</el-col>
+				</el-row>
+				<el-row>
+					<el-col :span="12">
+						<el-form-item label="压实厚度(cm)" prop="yshd"  label-width="110px"	>
+							<!-- <el-input v-model="form.yshd" placeholder="请输入压实厚度(cm)" maxlength="30" /> -->
+							<el-select v-model="form.yshd" placeholder="请输入压实厚度(cm)" style="width: 100%">
+          <el-option label="8" value="8" />
+          <el-option label="6" value="6" />
+          <el-option label="4" value="4" />
+        </el-select>
+						</el-form-item>
+				
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="每盘用料" prop="mpyl">
+							<el-input v-model="form.mpyl" placeholder="请输入每盘用料" maxlength="30" />
+						</el-form-item>
+					</el-col>
+				</el-row><el-row>
+					<el-col :span="12">
+						<el-form-item label="宽度(m)" prop="kd">
+							<el-input v-model="form.kd" placeholder="请输入宽度(m)" maxlength="30" />
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="出料温度" prop="clwd">
+							<el-input v-model="form.clwd" placeholder="请输入出料温度" maxlength="30" />
+						</el-form-item>
+					</el-col>
+				</el-row><el-row>
+					<el-col :span="12">
+						<el-form-item label="横坡(%)" prop="hp">
+							<el-select v-model="form.hp" placeholder="请输入横坡(%)" style="width: 100%">
+          <el-option label="2" value="2" />
+          <el-option label="3" value="3" />
+          <el-option label="4" value="4" />
+          <el-option label="5" value="5" />
+        </el-select>
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="油石比检查" prop="ysbjc"  label-width="110px">
+							<el-input v-model="form.ysbjc" placeholder="请输入油石比检查" maxlength="30" />
+						</el-form-item>
+					</el-col>
+				</el-row><el-row>
+					<el-col :span="12">
+						<el-form-item label="油石比(%)" prop="ysb">
+							<el-input v-model="form.ysb" placeholder="请输入油石比(%)" maxlength="30" />
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="运输方式" prop="ysfs">
+							<el-select v-model="form.ysfs" placeholder="请输入运输方式" style="width: 100%">
+          <el-option label="覆盖篷布自卸式运输车" value="覆盖篷布自卸式运输车" />
+        </el-select>
+						</el-form-item>
+					</el-col>
+				</el-row><el-row>
+					
+					<el-col :span="12">
+						<el-form-item label="沥青检验情况" prop="lqjcqk"  label-width="110px">
+							<el-input v-model="form.lqjcqk" placeholder="请输入沥青检验情况" maxlength="30" />
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="到达温度" prop="ddwd">
+							<el-input v-model="form.ddwd" placeholder="请输入到达温度" maxlength="30" />
+						</el-form-item>
+					</el-col>
+				</el-row><el-row>
+					<el-col :span="12">
+						<el-form-item label="摊铺方法" prop="tpff">
+							<el-select v-model="form.tpff" placeholder="请输入摊铺方法" style="width: 100%">
+          <el-option label="沥青摊铺机摊铺" value="沥青摊铺机摊铺" />
+        </el-select>
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="摊铺温度" prop="tpwd">
+						
+							<el-input v-model="form.tpwd" placeholder="请输入摊铺温度" maxlength="30" />
+						</el-form-item>
+					</el-col>
+				</el-row><el-row>
+					<el-col :span="12">
+						<el-form-item label="粗料集岩石名称" prop="cjlysmc"  label-width="110px">
+							<el-select v-model="form.cjlysmc" placeholder="请输入粗料集岩石名称" style="width: 100%">
+          <el-option label="花岗岩" value="花岗岩" />
+          <el-option label="石灰岩" value="石灰岩" />
+        </el-select>
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="平整度" prop="pzd">
+							<el-select v-model="form.pzd" placeholder="请输入平整度" style="width: 100%">
+          <el-option label="表面平整" value="表面平整" />
+        </el-select>
+						</el-form-item>
+					</el-col>
+				</el-row><el-row>
+					<el-col :span="12">
+						<el-form-item label="填充料类别" prop="tcllb"  label-width="110px">
+							<el-select v-model="form.tcllb" placeholder="请输入填充料类别" style="width: 100%">
+          <el-option label="矿粉" value="矿粉" />
+        </el-select>
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="厚度" prop="hd">
+							<el-select v-model="form.hd" placeholder="请输入厚度" style="width: 100%">
+          <el-option label="符合设计及规范要求" value="符合设计及规范要求" />
+        </el-select>
+						</el-form-item>
+					</el-col>
+				</el-row><el-row>
+					<el-col :span="12">
+						<el-form-item label="集料配合比" prop="jlphb"  label-width="110px">
+							<el-input v-model="form.jlphb" placeholder="请输入集料配合比" maxlength="30" />
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="横坡" prop="tphp">
+							<el-select v-model="form.tphp" placeholder="请输入横坡" style="width: 100%">
+          <el-option label="符合设计及规范要求" value="符合设计及规范要求" />
+        </el-select>
+						</el-form-item>
+					</el-col>
+				</el-row><el-row>
+					<el-col :span="12">
+						<el-form-item label="现场级配情况" prop="xcjpqk"  label-width="110px">
+							<el-select v-model="form.xcjpqk" placeholder="请输入现场级配情况" style="width: 100%">
+          <el-option label="符合设计及规范要求" value="符合设计及规范要求" />
+        </el-select>
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="碾压机具" prop="nyjj">
+							<el-select v-model="form.nyjj" placeholder="请输入碾压机具" style="width: 100%">
+          <el-option label="单钢轮、双钢轮、胶轮压路机" value="单钢轮、双钢轮、胶轮压路机" />
+        </el-select>
+						</el-form-item>
+					</el-col>
+				</el-row><el-row>
+					<el-col :span="12">
+						<el-form-item label="料场防污染措施" prop="lcfwrcs"  label-width="110px">
+							<el-select v-model="form.lcfwrcs" placeholder="请输入料场防污染措施" style="width: 100%">
+          <el-option label="场地硬化，排水措施良好" value="场地硬化，排水措施良好" />
+        </el-select>
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="碾压遍数" prop="nybs">
+							<el-select v-model="form.nybs" placeholder="请输入碾压遍数" style="width: 100%">
+          <el-option label="6遍" value="6遍" />
+          <el-option label="7遍" value="7遍" />
+          <el-option label="8遍" value="8遍" />
+        </el-select>
+						</el-form-item>
+					</el-col>
+				</el-row><el-row>
+					<el-col :span="12">
+						<el-form-item label="掺配情况" prop="cpqk">
+							<el-input v-model="form.cpqk" placeholder="请输入掺配情况" maxlength="30" />
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="碾压质量" prop="nyzl">
+							<el-select v-model="form.nyzl" placeholder="请输入碾压质量" style="width: 100%">
+          <el-option label="表面平整、无松散、无泛油现象" value="表面平整、无松散、无泛油现象" />
+        </el-select>
+						</el-form-item>
+					</el-col>
+				</el-row><el-row>
+					<el-col :span="12">
+						<el-form-item label="加温记录" prop="jwjl">
+							<el-input v-model="form.jwjl" placeholder="请输入加温记录" maxlength="30" />
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="碾压温度" prop="nywd">
+							<el-input v-model="form.nywd" placeholder="请输入碾压温度" maxlength="30" />
+						</el-form-item>
+					</el-col>
+				</el-row><el-row>
+					<el-col :span="12">
+						<el-form-item label="矿料加热温度" prop="kljrwd"  label-width="110px">
+							<el-input v-model="form.kljrwd" placeholder="请输入矿料加热温度" maxlength="30" />
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="碾压结束温度" prop="nyjswd" label-width="110px">
+							<el-input v-model="form.nyjswd" placeholder="请输入碾压结束温度" maxlength="30" />
+						</el-form-item>
+					</el-col>
+				</el-row><el-row>
+					<el-col :span="12">
+						<el-form-item label="开工气温" prop="kgqw">
+							<el-input v-model="form.kgqw" placeholder="请输入开工气温" maxlength="30" />
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="结束气温" prop="jsqw">
+							<el-input v-model="form.jsqw" placeholder="请输入结束气温" maxlength="30" />
+						</el-form-item>
+					</el-col>
 				</el-row>
 				<el-row>
 					<el-col :span="24">
-						<el-form-item label="施工时间" prop="sgsj">
-							<!-- <el-input v-model="form.sgsj" placeholder="请输入施工时间" maxlength="30" /> -->
-							<el-date-picker v-model="form.sgsj" value-format="YYYY-MM-DD HH:mm:ss" type="datetime"
-								style="width: 100%;"></el-date-picker>
+						<el-form-item label="气候变化情况" prop="qwbhqk"  label-width="110px">
+							<el-input v-model="form.qwbhqk" placeholder="气候变化情况" maxlength="30" />
+						</el-form-item>
+					</el-col>
+				</el-row><el-row>
+					<el-col :span="12">
+						<el-form-item label="施工员" prop="sgy">
+							<el-input v-model="form.sgy" placeholder="请输入施工员" maxlength="30" />
+						</el-form-item>
+					</el-col>
+					<el-col :span="12">
+						<el-form-item label="专业工程师" prop="zygcs"  label-width="110px">
+							<el-input v-model="form.zygcs" placeholder="请输入专业工程师" maxlength="30" />
 						</el-form-item>
 					</el-col>
 				</el-row>
@@ -120,7 +368,7 @@
 			</template>
 		</el-dialog>
 
-		<!-- 土壤数据导入对话框 -->
+		<!-- 数据导入对话框 -->
 		<el-dialog :title="upload.title" v-model="upload.open" width="400px" append-to-body>
 			<el-upload ref="uploadRef" :limit="1" accept=".xlsx, .xls" :headers="upload.headers"
 				:action="upload.url + '?updateSupport=' + upload.updateSupport" :disabled="upload.isUploading"
@@ -130,7 +378,7 @@
 				<template #tip>
 					<div class="el-upload__tip text-center">
 						<div class="el-upload__tip">
-							<el-checkbox v-model="upload.updateSupport" />是否更新已经存在的土壤数据数据
+							<el-checkbox v-model="upload.updateSupport" />是否更新已经存在的数据数据
 						</div>
 						<span>仅允许导入xls、xlsx格式文件。</span>
 						<el-link type="primary" :underline="false" style="font-size:12px;vertical-align: baseline;"
@@ -182,15 +430,15 @@
 	const initPassword = ref(undefined);
 	const postOptions = ref([]);
 	const roleOptions = ref([]);
-	/*** 土壤数据导入参数 */
+	/*** 数据导入参数 */
 	const upload = reactive({
-		// 是否显示弹出层（土壤数据导入）
+		// 是否显示弹出层（数据导入）
 		open: false,
-		// 弹出层标题（土壤数据导入）
+		// 弹出层标题（数据导入）
 		title: "",
 		// 是否禁用上传
 		isUploading: false,
-		// 是否更新已经存在的土壤数据数据
+		// 是否更新已经存在的数据数据
 		updateSupport: 0,
 		// 设置上传的请求头部
 		headers: {
@@ -210,27 +458,27 @@
 		rules: {
 			userName: [{
 				required: true,
-				message: "土壤数据名称不能为空",
+				message: "数据名称不能为空",
 				trigger: "blur"
 			}, {
 				min: 2,
 				max: 20,
-				message: "土壤数据名称长度必须介于 2 和 20 之间",
+				message: "数据名称长度必须介于 2 和 20 之间",
 				trigger: "blur"
 			}],
 			nickName: [{
 				required: true,
-				message: "土壤数据昵称不能为空",
+				message: "数据昵称不能为空",
 				trigger: "blur"
 			}],
 			password: [{
 				required: true,
-				message: "土壤数据密码不能为空",
+				message: "数据密码不能为空",
 				trigger: "blur"
 			}, {
 				min: 5,
 				max: 20,
-				message: "土壤数据密码长度必须介于 5 和 20 之间",
+				message: "数据密码长度必须介于 5 和 20 之间",
 				trigger: "blur"
 			}, {
 				pattern: /^[^<>"'|\\]+$/,
@@ -262,7 +510,7 @@
 		return data.label.indexOf(value) !== -1;
 	};
 
-	/** 查询土壤数据列表 */
+	/** 查询数据列表 */
 	function getList() {
 		loading.value = true;
 		console.log(555);
@@ -299,7 +547,7 @@
 	/** 删除按钮操作 */
 	function handleDelete(row) {
 		const sj17Ids = row.id || ids.value;
-		proxy.$modal.confirm('是否确认删除土壤数据编号为"' + sj17Ids + '"的数据项？').then(function() {
+		proxy.$modal.confirm('是否确认删除数据编号为"' + sj17Ids + '"的数据项？').then(function() {
 			return deleteSj17(sj17Ids);
 		}).then(() => {
 			getList();
@@ -337,7 +585,7 @@
 
 	/** 导入按钮操作 */
 	function handleImport() {
-		upload.title = "土壤数据导入";
+		upload.title = "数据导入";
 		upload.open = true;
 	};
 
@@ -375,7 +623,45 @@
 			hth: undefined,
 			sgdw: undefined,
 			jldw: undefined,
-			sgsj: undefined
+			sgsj: undefined,
+			bh: undefined,
+			gcmc: undefined,
+			zhjgcbw: undefined,
+			jglx: undefined,
+			bhfs: undefined,
+			yshd: undefined,
+			mpyl: undefined,
+			kd: undefined,
+			clwd: undefined,
+			hp: undefined,
+			ysbjc: undefined,
+			ysb: undefined,
+			ysfs: undefined,
+			lqjcqk: undefined,
+			ddwd: undefined,
+			tpff: undefined,
+			tpwd: undefined,
+			cjlysmc: undefined,
+			pzd: undefined,
+			tcllb: undefined,
+			hd: undefined,
+			jlphb: undefined,
+			tphp: undefined,
+			xcjpqk: undefined,
+			nyjj: undefined,
+			lcfwrcs: undefined,
+			nybs: undefined,
+			cpqk: undefined,
+			nyzl: undefined,
+			jwjl: undefined,
+			nywd: undefined,
+			kljrwd: undefined,
+			nyjswd: undefined,
+			kgqw: undefined,
+			jsqw: undefined,
+			qwbhqk: undefined,
+			sgy: undefined,
+			zygcs: undefined,
 		};
 		proxy.resetForm("userRef");
 	};
@@ -387,9 +673,11 @@
 	};
 
 	/** 新增按钮操作 */
-	function handleAdd() {
+function handleAdd() {
+	reset();
+		
 		open.value = true;
-		title.value = "添加土壤数据";
+		title.value = "添加数据";
 	};
 
 	/** 修改按钮操作 */
@@ -399,7 +687,7 @@
 		getSj17(id).then(response => {
 			form.value = response.data;
 			open.value = true;
-			title.value = "修改土壤数据";
+			title.value = "修改数据";
 		});
 	};
 
@@ -429,7 +717,7 @@
 		console.log(row)
 		console.log(row.id)
 		router.push({
-			path: "/detail",
+			path: "/detailsj17",
 			query: {
 				id: row.id
 			}

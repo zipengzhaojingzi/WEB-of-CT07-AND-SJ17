@@ -1,7 +1,5 @@
 <template>
-	<!-- <div class="app-container">
-		<!-- <div>详情页查询并显示</div> -->
-	<!-- </div> -->
+
 	<table id="ct07Table">
 		<table>
 			<tr>
@@ -357,6 +355,7 @@
 		</table>
 		<el-button link type="primary" @click="genExcel()">生成excel</el-button>
 	</table>
+	<!-- 	</view> -->
 </template>
 
 <script>
@@ -379,6 +378,31 @@
 					htd: undefined, // 合同段
 					sgdw: undefined, // 施工单位
 					jldw: undefined, // 监理单位
+					gcbwyt: undefined, // 工程部位/用途
+					ypxx: undefined, // 样品信息
+					syjcrq: undefined, // 试验检测日期
+					wd: undefined, // 温度
+					xdsd: undefined, // 相对湿度
+					jcyj: undefined, // 检测依据
+					pdyj: undefined, // 判断依据
+					zyyqsbmcjbh: undefined, // 主要仪器设备名称及编号
+					qydd: undefined, // 取样地点
+					qysd: undefined, // 取样深度
+					qyrq: undefined, // 取样日期
+					zdgmd: undefined, // 最大干密度
+					zjhsl: undefined, // 最佳含水率
+					mcjs: undefined, // 每层击数
+					grgmjA: undefined, // 贯入杆面积A
+					a: undefined, // 测力环回归方程中的a值
+					b: undefined, // 测力环回归方程中的b值
+					clhjzxs: undefined, // 测力环校正系数
+					th1: undefined, // 筒号
+					clhbfbds1: undefined, // 测力环百分表读数
+					dwyl1: undefined, // 单位压力
+					z1: undefined, // 贯入量百分表读数左
+					y1: undefined, // 贯入量百分表读数右
+					pjz1: undefined, // 平均值
+					grl1: undefined // 贯入量
 				},
 			};
 		},
@@ -430,11 +454,11 @@
 	};
 
 	/** 导出按钮操作 */
-	function handleExport() {
-		proxy.download("exportExcel", {
-			...queryParams.value,
-		}, `user_${new Date().getTime()}.xlsx`);
-	};
+	// function handleExport() {
+	// 	proxy.download("exportExcel", {
+	// 		...queryParams.value,
+	// 	}, `user_${new Date().getTime()}.xlsx`);
+	// };
 </script>
 
 <style>

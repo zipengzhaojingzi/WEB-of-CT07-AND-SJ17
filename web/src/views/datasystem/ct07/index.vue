@@ -75,7 +75,7 @@
 						<template #default="scope">
 							<el-tooltip content="查看详情" placement="top" v-if="scope.row.id !== 1">
 								<el-button link type="primary" icon="view" @click="Detail(scope.row)"
-									v-hasPermi="['Details']"></el-button>
+								v-hasPermi="['Details']"></el-button>
 							</el-tooltip>
 							<el-tooltip content="修改" placement="top" v-if="scope.row.id !== 1">
 								<el-button link type="primary" icon="Edit" @click="handleUpdate(scope.row)"
@@ -441,6 +441,7 @@
 </template>
 
 <script setup name="User">
+	
 	import {
 		ref
 	} from 'vue'
@@ -457,7 +458,8 @@
 		deleteCT07
 	} from "@/api/system/ct07";
 
-	const router = useRouter();
+	
+const router = useRouter();
 	const {
 		proxy
 	} = getCurrentInstance();
@@ -484,7 +486,7 @@
 		// 弹出层标题（土壤数据导入）
 		title: "",
 		// 是否禁用上传
-		isUploading: false,
+		isUploading: true,
 		// 是否更新已经存在的土壤数据数据
 		updateSupport: 0,
 		// 设置上传的请求头部
@@ -494,6 +496,11 @@
 		// 上传的地址
 		url: import.meta.env.VITE_APP_BASE_API + "/system/user/importData"
 	});
+// 	const sessionId = localStorage.getItem('sessionId') || '';
+// if (!sessionId) {
+//     const newSessionId = Math.random().toString(36).substr(2, 9); // 生成随机会话 ID
+//     localStorage.setItem('sessionId', newSessionId);
+// }
 
 	const data = reactive({
 		form: {
@@ -870,7 +877,7 @@
 			})
 			console.log(list);
 			userList.value = list;
-			total.value = res.total;
+			total.value = res.data.total;
 		});
 	};
 
@@ -955,7 +962,7 @@
 		console.log(row)
 		console.log(row.id)
 		router.push({
-			path: "/detail",
+			path: "/detailct07",
 			query: {
 				id: row.id
 			}
