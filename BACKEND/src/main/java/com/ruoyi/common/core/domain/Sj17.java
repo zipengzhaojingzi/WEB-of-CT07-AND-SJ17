@@ -35,7 +35,7 @@ public class Sj17 extends BaseEntity {
     private String tcllb;// 填充料类别
     private String hd;// 厚度
     private String jlphb;// 集料配合比
-    private float tphp;// 摊铺——横坡
+    private String tphp;// 摊铺——横坡
     private String xcjpqk;// 现场级配情况
     private String nyjj;// 碾压机具
     private String lcfwrcs;// 料场防污染措施
@@ -48,7 +48,7 @@ public class Sj17 extends BaseEntity {
     private float nyjswd;// 碾压结束温度
     private float kgqw;// 开工气温
     private float jsqw;// 结束气温
-    private float qwbhqk;// 气温变化情况
+    private String qwbhqk;// 气温变化情况
     private String sgy;// 施工员
     private String zygcs;// 专业工程师
 
@@ -228,11 +228,11 @@ public class Sj17 extends BaseEntity {
         this.jlphb = jlphb;
     }
 
-    public float getTphp() {
+    public String getTphp() {
         return tphp;
     }
 
-    public void setTphp(float tphp) {
+    public void setTphp(String tphp) {
         this.tphp = tphp;
     }
 
@@ -332,11 +332,11 @@ public class Sj17 extends BaseEntity {
         this.jsqw = jsqw;
     }
 
-    public float getQwbhqk() {
+    public String getQwbhqk() {
         return qwbhqk;
     }
 
-    public void setQwbhqk(float qwbhqk) {
+    public void setQwbhqk(String qwbhqk) {
         this.qwbhqk = qwbhqk;
     }
 

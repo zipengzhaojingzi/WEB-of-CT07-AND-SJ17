@@ -42,7 +42,7 @@
 			<tr>
 				<td colspan="2">结构类型</td>
 				<td class="yellow-bg">{{form.jglx}}</td>
-				<td rowspan="4" style="writing-mode: vertical-lr;width: 15px;">拌料情况</td>
+				<td rowspan="4" style="writing-mode: vertical-lr;width: 30px;">拌料情况</td>
 				<td >拌和方式</td>
 				<td class="yellow-bg">{{form.bhfs}}</td>
 			</tr>
@@ -71,7 +71,7 @@
 			<tr>
 				<td>油石比(%)</td>
 				<td class="yellow-bg">{{ form.ysbjc }}</td>	
-				<td rowspan="2" style="writing-mode: vertical-lr;width: 15px;">运料情况</td>		
+				<td rowspan="2" style="writing-mode: vertical-lr;width: 30px;">运料情况</td>		
 				<td>运输方式</td>
 				<td class="yellow-bg">{{ form.ysbjc }}</td>				
 			</tr>
@@ -81,9 +81,12 @@
 				<td>到达温度</td>
 				<td class="yellow-bg">{{ form.ddwd }}</td>
 			</tr>
-			<td rowspan="5" style="writing-mode: vertical-lr;width: 15px;">摊铺情况</td>
+			<tr>
+				<td rowspan="5" style="writing-mode: vertical-lr;width: 30px;">摊铺情况</td>
 			<td>摊铺方法</td>
-			<td class="yellow-bg">{{ form.tpff }}</td>
+			<td class="yellow-bg">{{ form.tpff }}</td> 	
+			</tr>
+		
 			<tr>
 				<td>摊铺温度</td>
 				<td class="yellow-bg">{{ form.tpwd }}</td>
@@ -114,7 +117,7 @@
 				<td colspan="2">现场级配情况</td>
 				<td class="yellow-bg">{{ form.xcjpqk }}</td>
 				
-				<td rowspan="5" style="writing-mode: vertical-lr;width: 15px;">碾压情况</td>
+				<td rowspan="5" style="writing-mode: vertical-lr;width: 30px;">碾压情况</td>
 				<td>碾压机具</td>
 				<td class="yellow-bg">{{ form.nyjj }}</td>
 			</tr>
@@ -126,7 +129,7 @@
 				
 			</tr>
 			<tr>
-				<td rowspan="2" style="width: 100px;">沥青加工</td>	
+				<td rowspan="2" >沥青加工</td>	
 				<td style="width: 100px;">掺配情况</td>
 				<td class="yellow-bg">{{ form.cpqk }}</td>
 				<td>碾压质量</td>
@@ -243,7 +246,7 @@ export default {
 		genExcel() {
 	$('#sj17Table').table2excel({
 		  name: "SheetName",
-		  filename: "table",
+		  filename: "沥青混凝土路面面层施工记录表",
 		exclude_img: true,
 		exclude_links: true,
 		exclude_inputs: true

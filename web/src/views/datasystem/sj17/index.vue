@@ -255,8 +255,8 @@
 						</el-form-item>
 					</el-col>
 					<el-col :span="12">
-						<el-form-item label="横坡" prop="tphp">
-							<el-select v-model="form.tphp" placeholder="请输入横坡" style="width: 100%">
+						<el-form-item label="摊铺横坡" prop="tphp">
+							<el-select v-model="form.tphp" placeholder="请输入摊铺横坡" style="width: 100%">
           <el-option label="符合设计及规范要求" value="符合设计及规范要求" />
         </el-select>
 						</el-form-item>
