@@ -156,11 +156,11 @@ public class Sj17 extends BaseEntity {
         this.ysfs = ysfs;
     }
 
-    public String getLqjyqk() {
+    public String getLqjcqk() {
         return lqjcqk;
     }
 
-    public void setLqjyqk(String lqjcqk) {
+    public void setLqjcqk(String lqjcqk) {
         this.lqjcqk = lqjcqk;
     }
 

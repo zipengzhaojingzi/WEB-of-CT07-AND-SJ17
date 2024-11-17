@@ -22,7 +22,7 @@
 				<uni-datetime-picker v-model="sj17Data.sgsj" placeholder="" type="date" />
 			</uni-forms-item>
 			<uni-forms-item label="桩号和工程部位" name="zhhgcbw">
-				<uni-easyinput v-model="sj17Data.zhhgcbw" placeholder="" />
+				<uni-easyinput v-model="sj17Data.zhjgcbw" placeholder="" />
 			</uni-forms-item>
 			<uni-forms-item label="结构类型" name="jglx">
 				<uni-easyinput v-model="sj17Data.jglx" placeholder="" />
